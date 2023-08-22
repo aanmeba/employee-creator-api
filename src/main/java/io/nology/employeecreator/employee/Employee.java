@@ -1,15 +1,21 @@
-package io.nology.employeecreator.employees;
+package io.nology.employeecreator.employee;
 
 import jakarta.persistence.Column;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-public class CreateEmployeeDTO {
-	
-	public CreateEmployeeDTO(String firstName,
+@Entity
+@Table(name = "employees")
+public class Employee {
+
+	public Employee() {}
+	public Employee(String firstName,
 			String lastName,
 			String email,
-			Long mobile,
+			String mobile,
 			String address,
 			String contractType,
 			String startDate,
@@ -32,36 +38,50 @@ public class CreateEmployeeDTO {
 		
 	}
 	
-	@NotBlank
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column
 	private String firstName;
 	
+	@Column
 	private String middleName;
 	
-	@NotBlank
+	@Column
 	private String lastName;
 	
-	@NotBlank
+	@Column
 	private String email;
 	
-	@NotNull
-	private Long mobile;
+	@Column
+	private String mobile;
 	
-	@NotBlank
+	@Column
 	private String address;
 	
-	@NotBlank
+	@Column
 	private String contractType;
 	
-	@NotBlank
+	@Column
 	private String startDate;
 	
+	@Column
 	private String finishDate;
 	
-	@NotNull
+	@Column
 	private Boolean isFullTime;
 	
-	@NotNull
+	@Column
 	private Integer hoursPerWeek;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -95,11 +115,11 @@ public class CreateEmployeeDTO {
 		this.email = email;
 	}
 
-	public Long getMobile() {
+	public String getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(Long mobile) {
+	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 
@@ -150,7 +170,6 @@ public class CreateEmployeeDTO {
 	public void setHoursPerWeek(Integer hoursPerWeek) {
 		this.hoursPerWeek = hoursPerWeek;
 	}
-	
-	
+
 	
 }
