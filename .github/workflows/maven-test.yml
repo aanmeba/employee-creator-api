@@ -17,8 +17,12 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Setup Maven
-      uses: stCarolas/setup-maven@v.4.5
-      
-    - name: All the Tests and Coverage Checks
-      run: mvn clean install
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+        
+    - name: Run tests with Maven
+      run: mvn -B test --file pom.xml
