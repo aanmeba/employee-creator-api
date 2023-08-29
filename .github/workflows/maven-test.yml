@@ -17,11 +17,11 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Install Maven
-      run: mvn -v 
+    - name: Setup Maven
+      run: sudo apt-get install -y maven
       
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn package
 
     - name: Run tests with Maven
       run: mvn test
