@@ -1,7 +1,10 @@
 package io.nology.employeecreator;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ActiveProfiles;
 
 @ActiveProfiles("test")
@@ -9,7 +12,8 @@ import org.springframework.test.context.ActiveProfiles;
 class EmployeecreatorApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void contextLoads(ApplicationContext context) {
+		assertThat(context).isNotNull();
 	}
 
 }
