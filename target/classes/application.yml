@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/employee_creator?useUnicode=true&characterEncoding=UTF8&sessionVariables=default_storage_engine=InnoDB&amp;sslMode=DISABLED}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/employee_creator}
     username: ${SPRING_DATASOURCE_USERNAME:root}
     password: ${SPRING_DATASOURCE_PASSWORD}
   jpa:
