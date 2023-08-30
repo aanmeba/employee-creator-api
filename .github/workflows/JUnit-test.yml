@@ -1,7 +1,3 @@
-env:
-  TEST_DB_URL: jdbc:h2://mem:db;DB_CLOSE_DELAY=-1
-  MYSQL_HOST: localhost
-
 name: Java Spring Boot Tests with Maven
 
 on: [push]
@@ -38,9 +34,6 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-
-      - name: Print environment variables
-        run: echo "****** $TEST_DB_URL ****** ${{secrets.MYSQL_HOST}} ++++++"
 
       - name: Run Tests
         run: mvn -B test --file pom.xml
