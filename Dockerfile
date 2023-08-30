@@ -17,6 +17,6 @@ FROM eclipse-temurin:17
 WORKDIR /app
 EXPOSE 8080
 
-COPY --from=builder /app/target/pokemon-backend.jar .
+COPY --from=builder /app/target/employee_creator.jar .
 
-CMD ["java", "-jar", "pokemon-backend.jar"]
+CMD ["java", "-jar", "employee_creator.jar"]
