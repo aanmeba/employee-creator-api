@@ -17,8 +17,11 @@ jobs:
         env:
           MYSQL_DATABASE: employee_creator
           MYSQL_USERNAME: root
+          # MYSQL_ROOT_PASSWORD: password
+          MYSQL_HOST: mysql
         ports:
           - 3306:3306
+        options: --health-cmd="mysqladmin ping -h localhost"
 
     steps:
       - uses: actions/checkout@v3
@@ -37,7 +40,9 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Print environment variables
-        run: echo "****** $TEST_DB_URL ****** ${{secrets.MYSQL_HOST}}"
+        run: echo "****** $TEST_DB_URL ****** ${{secrets.MYSQL_HOST}} ++++++"
 
       - name: Run Tests
         run: mvn -B test --file pom.xml
+        env:
+          DB_PORT: ${{ job.services.mysql.ports[3306]}}
