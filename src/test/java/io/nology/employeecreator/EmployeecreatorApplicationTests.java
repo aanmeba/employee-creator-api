@@ -15,5 +15,10 @@ class EmployeecreatorApplicationTests {
 	void contextLoads(ApplicationContext context) {
 		assertThat(context).isNotNull();
 	}
+	
+	@Test
+	void hasIndieAuthControllerConfigured(ApplicationContext context) {
+		assertThat(context.getBean("accessTokenVerifier")).isNotNull();
+	}
 
 }
