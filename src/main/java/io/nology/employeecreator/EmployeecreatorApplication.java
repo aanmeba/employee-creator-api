@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EmployeecreatorApplication {
 
 	public static void main(String[] args) {
+		EnvLoader.load();
 		SpringApplication.run(EmployeecreatorApplication.class, args);
 	}
 
