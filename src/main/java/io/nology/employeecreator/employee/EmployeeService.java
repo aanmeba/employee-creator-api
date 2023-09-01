@@ -35,8 +35,16 @@ public class EmployeeService {
 		String contractType = data.getContractType();
 //		String startDate = data.getStartDate();
 //		String finishDate = data.getFinishDate();
-//		Boolean isFullTime = data.getIsFullTime();
+//		String hoursType = data.getHoursType();
 //		Integer hoursPerWeek = data.getHoursPerWeek();
+		
+		boolean validContractType = this.isValidContractType(contractType);
+		if (!validContractType) {
+			throw new IllegalArgumentException("Please enter a valid contract type");
+		}
+		
+		Employee newEmployee = modelMapper.map(data, Employee.class);
+		
 
 //		Employee newEmployee = new Employee(
 //				firstName,
@@ -46,18 +54,11 @@ public class EmployeeService {
 //				address,
 //				contractType,
 //				startDate,
-//				isFullTime,
+//				hoursType,
 //				hoursPerWeek,
 //				middleName,
 //				finishDate
 //				);
-		
-		boolean validContractType = this.isValidContractType(contractType);
-		if (!validContractType) {
-			throw new IllegalArgumentException("Please enter a valid contract type");
-		}
-		
-		Employee newEmployee = modelMapper.map(data, Employee.class);
 		Employee createdEmployee = this.employeeRepository.save(newEmployee);
 		return createdEmployee;
 	}

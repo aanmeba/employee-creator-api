@@ -14,6 +14,7 @@ import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
 import org.springframework.test.context.ActiveProfiles;
 
 
@@ -23,6 +24,9 @@ public class EmployeeServiceTest {
 
 	@Mock
 	private EmployeeRepository employeeRepository;
+	
+	@Mock
+	private ModelMapper modelMapper;
 	
 	
 	@InjectMocks
@@ -71,7 +75,7 @@ public class EmployeeServiceTest {
 		Employee employee = new Employee(
 				"Ben", "Crown", "ben@test.com",
 				"0410123123", "1 Australia ave", "contract",
-				"2023-08-01", true, 40, "", ""
+				"2023-08-01", "full-time", 40, "", ""
 				);
 		
 		Long id = 1l;
