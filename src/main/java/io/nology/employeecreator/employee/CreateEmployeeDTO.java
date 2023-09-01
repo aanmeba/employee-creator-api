@@ -14,7 +14,7 @@ public class CreateEmployeeDTO {
 			String address,
 			String contractType,
 			String startDate,
-			Boolean isFullTime,
+			String hoursType,
 			Integer hoursPerWeek,
 			String middleName,
 			String finishDate
@@ -26,7 +26,7 @@ public class CreateEmployeeDTO {
 		this.address = address;
 		this.contractType = contractType;
 		this.startDate = startDate;
-		this.isFullTime = isFullTime;
+		this.hoursType = hoursType;
 		this.hoursPerWeek = hoursPerWeek;
 		this.middleName = middleName;
 		this.finishDate = finishDate;
@@ -59,7 +59,7 @@ public class CreateEmployeeDTO {
 	private String finishDate;
 	
 	@NotNull
-	private Boolean isFullTime;
+	private String hoursType;
 	
 	@NotNull
 	private Integer hoursPerWeek;
@@ -136,12 +136,12 @@ public class CreateEmployeeDTO {
 		this.finishDate = finishDate;
 	}
 
-	public Boolean getIsFullTime() {
-		return isFullTime;
+	public String getHoursType() {
+		return hoursType;
 	}
 
-	public void setIsFullTime(Boolean isFullTime) {
-		this.isFullTime = isFullTime;
+	public void setHoursType(String hoursType) {
+		this.hoursType = hoursType;
 	}
 
 	public Integer getHoursPerWeek() {
