@@ -39,7 +39,7 @@ public class EmployeeServiceTest {
 		CreateEmployeeDTO employee = new CreateEmployeeDTO(
 				"Ben", "Crown", "ben@test.com",
 				"0410123123", "1 Australia ave", "contract",
-				"2023-08-01", true, 40, "", ""
+				"2023-08-01", "full-time", 40, "", ""
 				);
 		
 		underTest.create(employee);
@@ -56,7 +56,7 @@ public class EmployeeServiceTest {
 		CreateEmployeeDTO employee = new CreateEmployeeDTO(
 				"Ben", "Crown", "ben@test.com",
 				"0410123123", "1 Australia ave", "casual",
-				"2023-08-01", true, 40, "", ""
+				"2023-08-01", "full-time", 40, "", ""
 				);
 		
 		assertThatThrownBy(() -> underTest.create(employee))
