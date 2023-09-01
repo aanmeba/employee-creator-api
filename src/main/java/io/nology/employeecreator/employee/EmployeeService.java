@@ -26,39 +26,39 @@ public class EmployeeService {
 	
 	public Employee create(CreateEmployeeDTO data) {
 
-//		String firstName = data.getFirstName();
-//		String middleName = data.getMiddleName();
-//		String lastName = data.getLastName();
-//		String email = data.getEmail();
-//		String mobile = data.getMobile();
-//		String address = data.getAddress();
+		String firstName = data.getFirstName();
+		String middleName = data.getMiddleName();
+		String lastName = data.getLastName();
+		String email = data.getEmail();
+		String mobile = data.getMobile();
+		String address = data.getAddress();
 		String contractType = data.getContractType();
-//		String startDate = data.getStartDate();
-//		String finishDate = data.getFinishDate();
-//		String hoursType = data.getHoursType();
-//		Integer hoursPerWeek = data.getHoursPerWeek();
+		String startDate = data.getStartDate();
+		String finishDate = data.getFinishDate();
+		String hoursType = data.getHoursType();
+		Integer hoursPerWeek = data.getHoursPerWeek();
 		
 		boolean validContractType = this.isValidContractType(contractType);
 		if (!validContractType) {
 			throw new IllegalArgumentException("Please enter a valid contract type");
 		}
 		
-		Employee newEmployee = modelMapper.map(data, Employee.class);
+//		Employee newEmployee = modelMapper.map(data, Employee.class);
 		
 
-//		Employee newEmployee = new Employee(
-//				firstName,
-//				lastName,
-//				email,
-//				mobile,
-//				address,
-//				contractType,
-//				startDate,
-//				hoursType,
-//				hoursPerWeek,
-//				middleName,
-//				finishDate
-//				);
+		Employee newEmployee = new Employee(
+				firstName,
+				lastName,
+				email,
+				mobile,
+				address,
+				contractType,
+				startDate,
+				hoursType,
+				hoursPerWeek,
+				middleName,
+				finishDate
+				);
 		Employee createdEmployee = this.employeeRepository.save(newEmployee);
 		return createdEmployee;
 	}

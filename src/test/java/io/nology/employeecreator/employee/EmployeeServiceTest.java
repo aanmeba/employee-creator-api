@@ -57,13 +57,14 @@ public class EmployeeServiceTest {
 	
 	@Test
 	void itShouldNotCreateNewEmployee() {
-		CreateEmployeeDTO employee = new CreateEmployeeDTO(
+		
+		CreateEmployeeDTO employeeDTO = new CreateEmployeeDTO(
 				"Ben", "Crown", "ben@test.com",
 				"0410123123", "1 Australia ave", "casual",
 				"2023-08-01", "full-time", 40, "", ""
 				);
 		
-		assertThatThrownBy(() -> underTest.create(employee))
+		assertThatThrownBy(() -> underTest.create(employeeDTO))
 			.isInstanceOf(IllegalArgumentException.class)
 			.hasMessage("Please enter a valid contract type");
 		
