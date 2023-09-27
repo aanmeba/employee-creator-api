@@ -1,3 +1,5 @@
+[![Java Spring Boot Tests with Maven](https://github.com/aanmeba/employee-creator-api/actions/workflows/JUnit-test.yml/badge.svg?branch=main)](https://github.com/aanmeba/employee-creator-api/actions/workflows/JUnit-test.yml)
+
 # Employee Creator - Backend
 
 - [Go to Employee Creater - Frontend repo](https://github.com/aanmeba/employee-creator-client)
